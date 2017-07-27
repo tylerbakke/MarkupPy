@@ -4,10 +4,10 @@ This is markup.py - a Python module that attempts to make it easier to generate 
 
 The code is in the public domain.
 
-Version: 1.10 as of 16 March 2015.
+Version: 1.12 as of 12 July 2017.
 
-Documentation and further info is at http://markup.sourceforge.net/
+Documentation and further info is at https://tylerbakke.github.io/MarkupPy/
 
-Please send bug reports, feature requests, enhancement ideas or questions to nogradi at gmail dot com.
+Please send bug reports, feature requests, enhancement ideas or questions to tylerbakke@gmail.com.
 
-Installation: Run "pip install markup.py" from the terminal.
+Installation: Run "pip install MarkupPy" from the terminal.
