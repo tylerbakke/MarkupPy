@@ -23,7 +23,7 @@
                 <td>
                     <div id='main'>
 
-            <h1><a name='about'>About MarkupPy</a></h1>
+            <h1><a name='about'>About MarkupPy (Previously markup.py) </a></h1>
             <p>MarkupPy is an intuitive, light weight, easy-to-use, customizable and pythonic HTML/XML generator. It attempts to help
             developers output valid HTML 4.01 as defined by the
             <a href='http://www.w3.org/TR/html4/'>W3C specification</a>.
@@ -47,13 +47,13 @@
             <p>A quick example: the following code</p>
 
             <a name='quick'><div class='code'></a><pre>
-    import markup
+    import MarkupPy
 
     items = ( "Item one", "Item two", "Item three", "Item four" )
     paras = ( "This was a fantastic list.", "And now for something completely different." )
     images = ( "thumb1.jpg", "thumb2.jpg", "more.jpg", "more2.jpg" )
 
-    page = markup.page( )
+    page = MarkupPy.page( )
     page.init( title="My title", 
                css=( 'one.css', 'two.css' ), 
                header="Something at the top", 
@@ -102,7 +102,7 @@
 
             <p>See below for more <a href='#examples'>examples</a> or download a module with even more <a href='examples.py'>examples.py</a>.</p>
 
-            <p>The emphasis is on being lightweight; markup.py is not a web framework or full blown templating engine or parser,
+            <p>The emphasis is on being lightweight; MarkupPy is not a web framework or full blown templating engine or parser,
             it is actually a single file with only three classes plus exceptions. And its only purpose in life is to generate
             HTML/XML without cluttering your Python code with tags.</p>
 
@@ -115,7 +115,7 @@
             for frequently used combination of tags such
             as defining a CSS stylesheet, defining a header or footer, etc.</p>
 
-            <p>Basic operation of markup.py tries to be simple. Element definition in your Python code
+            <p>Basic operation of MarkupPy tries to be simple. Element definition in your Python code
             is done via</p>
             <div class='code'><pre>
     mypage.element( text, attr1=value1, attr2=value2 )</pre></div>
@@ -123,7 +123,7 @@
             <div class='code'><pre>
     &lt;element attr1='value1' attr2='value2'&gt;text&lt;/element&gt;</pre></div>
             <p>for an element
-            with both opening and closing tags. Here <b>mypage</b> is an instance of <b>markup.page</b>.
+            with both opening and closing tags. Here <b>mypage</b> is an instance of <b>MarkupPy.page</b>.
             For an element with an opening tag only non-keyword arguments raise
                 an exception thus only</p>
                 <div class='code'><pre>
@@ -170,14 +170,14 @@
 
             <p>The following code</p>
             <div class='code'><pre>
-    import markup
+    import MarkupPy
 
     title = "Useless Inc."
     header = "Some information at the top, perhaps a menu."
     footer = "This is the end."
     styles = ( 'layout.css', 'alt.css', 'images.css' )
 
-    page = markup.page( )
+    page = MarkupPy.page( )
     page.init( css=styles, title=title, header=header, footer=footer )
     page.br( )
     
@@ -218,11 +218,11 @@
 
             <p>For an HTML snippet without doctype, head, title, etc, omit the <b>init( )</b> method:</p>
             <div class='code'><pre>
-    import markup
+    import MarkupPy
 
     images = ( 'egg.jpg', 'spam.jpg', 'eggspam.jpg' )
     
-    page = markup.page( case='upper' )
+    page = MarkupPy.page( case='upper' )
 
     page.div( class_='thumbs' )
     page.img( width=60, height=80, src=images, class_='thumb' )
@@ -245,13 +245,13 @@
             document will be generated. Note the <b>mode='xml'</b> keyword argument to <b>init( )</b>.</p>
 
             <div class='code'><pre>
-    import markup
+    import MarkupPy
 
     titles = ( 'Best features of M-theory', 'Best bugs in M-theory', 'Branes and brains' )
     universities = ( 'Cambridge', 'MIT', 'Amsterdam' )
     dates = ( 'January', 'February', 'March' )
 
-    myxml = markup.page( mode='xml' )
+    myxml = MarkupPy.page( mode='xml' )
     myxml.init( encoding='ISO-8859-2' )
 
     myxml.cv.open( )
@@ -275,13 +275,13 @@
             <p><a name='tags'>Limiting</a> the set of valid elements is done throught the <b>onetags</b> and <b>twotags</b> options of the
             <b>init( )</b> method:</p>
             <div class='code'><pre>
-    import markup
+    import MarkupPy
 
     names =     ( 'Alice', 'Bob', 'Eve' )
     positions = ( 'encryption', 'encryption', 'eavesdropper' )
     locations = ( 'headquarters', 'headquarters', 'unknown' )
 
-    myxml = markup.page( mode='xml', onetags=[ 'person', 'location' ], twotags=[ 'company' ] )
+    myxml = MarkupPy.page( mode='xml', onetags=[ 'person', 'location' ], twotags=[ 'company' ] )
     myxml.init( )
     
     myxml.company( name='Secret' )
@@ -309,12 +309,12 @@
             <br>
             <h1><a name='documentation'>Documentation</a></h1>
             
-            <p>Each element is represented by a callable subclass of <b>markup.page</b>. Elements requiring both an opening and closing tag
+            <p>Each element is represented by a callable subclass of <b>MarkupPy.page</b>. Elements requiring both an opening and closing tag
             and those with only opening tags are distinguished and handled differently. The first (non-keyword) argument
             to an element will appear between the opening and closing tags and any keyword argument is interpreted as an attribute.
             A non-keyword argument for elements requiring only an opening tag raises an exception.</p>
 
-            <p>Thus if <b>mypage</b> is an instance of <b>markup.page</b> then</p>
+            <p>Thus if <b>mypage</b> is an instance of <b>MarkupPy.page</b> then</p>
             <div class='code'><pre>
     mypage.element( text, attr1=value1, attr2=value2 )</pre></div>
             <p>will be rendered as</p>
@@ -336,7 +336,7 @@
                 <div class='code'><pre>
     &lt;element checked /&gt;</pre></div>
 
-                <p>Adding pure text without tags is done with the <b>add( )</b> method of <b>markup.page</b> which
+                <p>Adding pure text without tags is done with the <b>add( )</b> method of <b>MarkupPy.page</b> which
                 unfortunately forbids the use of <b>add</b> as an element name. The method <b>add( )</b> should be called
                 with a string argument that will be added to the document without any tags. Similarly <b>addheader( )</b>
                 adds text to the top of the document but after any header information added by the <b><a href='#init'>init( )</a></b> method and
@@ -359,9 +359,9 @@
             <p>It is possible to nest elements via the <b>oneliner</b> object. For instance:</p>
 
             <div class='code'><pre>
-    from markup import oneliner as e
+    from MarkupPy import oneliner as e
 
-    page = markup.page( )
+    page = MarkupPy.page( )
     page.a( e.img( src='myimage.jpg' ), href='http://hak5.org/' )
     print page</pre></div>
 
@@ -379,7 +379,7 @@
             There is also a problem with <b>http-equiv</b> and similar attributes because the <b>-</b> sign is interpreted
             as subtraction by Python. Use an underscore instead, <b>http_equiv</b>, etc.</p>
 
-            <p>Defining a new document starts with instantiating the <b>markup.page</b> class. The following optional arguments may be passed
+            <p>Defining a new document starts with instantiating the <b>MarkupPy.page</b> class. The following optional arguments may be passed
             to the constructor:</p>
 
             <dl>
@@ -415,7 +415,7 @@
 
             </dl>
 
-            <p>After instantiating the <b>markup.page</b> class it is possible to add stuff which is ususally needed for any document. This is not obligatory
+            <p>After instantiating the <b>MarkupPy.page</b> class it is possible to add stuff which is ususally needed for any document. This is not obligatory
             for example for an HTML/XML snippet which should not include the document type, head, title, etc., it might be omitted. For a full document it
             is useful however and is done with the <a name='init'><b>init( )</b></a> method which accepts the following keyword
             argument in any mode:</p>
@@ -448,7 +448,7 @@
             document automatically.</p>
 
             <p>Once coding of the document finished, the actual content as a string is in <b>mypage( )</b> or <b>str( mypage )</b> assuming
-            that the <b>markup.page</b> instance is <b>mypage</b>. Sometimes it is useful to escape all &lt;, &gt; and &amp; characters
+            that the <b>MarkupPy.page</b> instance is <b>mypage</b>. Sometimes it is useful to escape all &lt;, &gt; and &amp; characters
             as &amp;lt;, &amp;gt; and &amp;amp; if you
             want to show them in a browser in which case <b>mypage( escape=True )</b> can be called.
             
@@ -541,7 +541,7 @@
 
 
             <p>In XML mode any element with either only opening or both opening and closing tags are allowed. Using the <b>onetags</b> and <b>twotags</b> options
-            when instantiating the <b>markup.page</b> class the default behaviour can be overriden and these lists may contain the only allowed
+            when instantiating the <b>MarkupPy.page</b> class the default behaviour can be overriden and these lists may contain the only allowed
             elements with both opening and closing tags (<b>twotags</b>) and the ones with opening tag only (<b>onetags</b>).
             See above for an <a href='#tags'>example</a>. If these keyword arguments are used appropriate exceptions are
             raised if an invalid element (an element not in these lists) is attempted to be used in order to prevent typos.</p>
@@ -552,13 +552,13 @@
             <br>
             
             <h1><a name='development'>Development</a></h1>
-            <p>The current (2017) version is 1.12.</p>
+            <p>The current (2017) version is 1.14.</p>
             
             <p>If you find any bugs, please send them to tylerbakke@gmail.com</p>
 
             <p>If you have feature requests, suggestions for improvements, any comments or such, please email that as well.</p>
             
-            <p>Here is a list of people who have contributed to the development of markup.py in some way or another,
+            <p>Here is a list of people who have contributed to the development of MarkupPy in some way or another,
             their efforts are kindly acknowledged:</p>
 
             <ul><br>
