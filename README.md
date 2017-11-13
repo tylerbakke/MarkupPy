@@ -11,4 +11,4 @@ Please send bug reports, feature requests, enhancement ideas or questions to tyl
 
 The Python Package can be found at https://pypi.python.org/pypi/MarkupPy.
 
-The code is in the public domain. Version: 1.12 as of July 12 2017.
+The code is in the public domain. Version: 1.14 as of July 12 2017.
