@@ -2,7 +2,7 @@ from setuptools import setup
 import textwrap
 
 setup(name='MarkupPy',
-      version='1.13',
+      version='1.14',
       description='An HTML/XML generator',
       url='https://github.com/tylerbakke/MarkupPy',
       author='Daniel Nogradi',
@@ -12,7 +12,7 @@ setup(name='MarkupPy',
     
         The code is in the public domain.
 
-        Version: 1.12 as of July 12 2017.
+        Version: 1.14 as of August 1, 2017.
 
         Please send bug reports, feature requests, enhancement ideas or questions to tylerbakke@gmail.com.
  
