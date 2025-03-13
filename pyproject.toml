@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MarkupPy"
+version = "1.15"
+description = "An HTML/XML generator"
+readme = "README.md"
+authors = [
+    {name = "Daniel Nogradi", email = "nogradi@gmail.com"}
+]
+maintainers = [
+    {name = "Tyler Bakke", email = "tylerbakke@gmail.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=2.7"
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Text Processing :: Markup :: XML"
+]
+
+[project.urls]
+Homepage = "https://github.com/tylerbakke/MarkupPy"
+Documentation = "https://tylerbakke.github.io/MarkupPy/"
+"Bug Tracker" = "https://github.com/tylerbakke/MarkupPy/issues"
+
+[tool.setuptools]
+packages = ["MarkupPy"] 
