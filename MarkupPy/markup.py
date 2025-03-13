@@ -2,8 +2,8 @@
 # with absolutely no warranty and you can do
 # absolutely whatever you want with it.
 
-__date__ = '16 March 2015'
-__version__ = '1.10'
+__date__ = '12 March 2024'
+__version__ = '1.15'
 __doc__= """
 This is markup.py - a Python module that attempts to
 make it easier to generate HTML/XML from a Python program
@@ -250,7 +250,8 @@ class page:
 
 
     def init( self, lang='en', css=None, metainfo=None, title=None, header=None,
-              footer=None, charset=None, encoding=None, doctype=None, bodyattrs=None, script=None, base=None ):
+              footer=None, charset=None, encoding=None, doctype=None, bodyattrs=None, script=None, base=None,
+              style_content=None, script_content=None ):
         """This method is used for complete documents with appropriate
         doctype, encoding, title, etc information. For an HTML/XML snippet
         omit this method.
@@ -293,7 +294,13 @@ class page:
 
         doctype --  the document type string, defaults to
                     <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
-                    in html mode (ignored in xml mode)"""
+                    in html mode (ignored in xml mode)
+                    
+        style_content -- CSS style content as a string or a list of strings to be inserted
+                    into <style> element(s) (ignored in xml mode)
+                    
+        script_content -- JavaScript code as a string or a list of strings to be inserted
+                    into <script> element(s) (ignored in xml mode)"""
 
         self._full = True
 
@@ -309,10 +316,22 @@ class page:
                 self.metainfo( metainfo )
             if css is not None:
                 self.css( css )
+            if style_content is not None:
+                if isinstance( style_content, basestring ):
+                    self.style( style_content )
+                elif isinstance( style_content, list ):
+                    for style in style_content:
+                        self.style( style )
             if title is not None:
                 self.title( title )
             if script is not None:
                 self.scripts( script )
+            if script_content is not None:
+                if isinstance( script_content, basestring ):
+                    self.script( script_content, type='text/javascript' )
+                elif isinstance( script_content, list ):
+                    for script_str in script_content:
+                        self.script( script_str, type='text/javascript' )
             if base is not None:
                 self.base( href='%s' % base )
             self.head.close()
