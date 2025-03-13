@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "MarkupPy"
-version = "1.16"
+version = "1.17"
 description = "An HTML/XML generator"
 readme = "README.md"
 authors = [

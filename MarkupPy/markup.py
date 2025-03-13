@@ -3,7 +3,7 @@
 # absolutely whatever you want with it.
 
 __date__ = '12 March 2024'
-__version__ = '1.16'
+__version__ = '1.17'
 __doc__= """
 This is markup.py - a Python module that attempts to
 make it easier to generate HTML/XML from a Python program
@@ -235,6 +235,16 @@ class page:
     def add( self, text ):
         """This is an alias to addcontent."""
         self.addcontent( text )
+
+    def add_raw( self, text ):
+        """Add text directly to the document without using the separator when rendering.
+        This is useful for pre tags and other elements where you don't want extra newlines."""
+        if self.content and isinstance(self.content[-1], basestring):
+            # Append to the last content item to avoid separator insertion
+            self.content[-1] += text
+        else:
+            # Start a new content item
+            self.content.append(text)
 
     def addfooter( self, text ):
         """Add some text to the bottom of the document"""
