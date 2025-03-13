@@ -3,7 +3,7 @@
 # absolutely whatever you want with it.
 
 __date__ = '12 March 2024'
-__version__ = '1.15'
+__version__ = '1.16'
 __doc__= """
 This is markup.py - a Python module that attempts to
 make it easier to generate HTML/XML from a Python program
