@@ -100,3 +100,27 @@ python tests/test_add_raw.py
 The tests verify that:
 1. Inline styles and scripts work correctly in the `init` method
 2. The `add_raw` method properly handles pre-formatted content without adding unwanted newlines
+
+## For Maintainers
+
+### Release Process
+
+When publishing a new release to PyPI, follow these steps:
+
+1. Update the version number in both:
+   - `MarkupPy/markup.py` (update `__version__` and `__date__`)
+   - `pyproject.toml` (update `version` under `[project]`)
+
+2. Add a Git tag for the release:
+   ```bash
+   git tag -a v1.XX -m "Version 1.XX - Brief description of changes"
+   git push origin v1.XX
+   ```
+
+3. Build and upload to PyPI:
+   ```bash
+   python -m build
+   python -m twine upload dist/markuppy-1.XX*
+   ```
+
+This ensures that each PyPI release is properly tagged in the Git repository, making it easier to track releases and find specific versions of the code.
