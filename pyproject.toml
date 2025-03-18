@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "MarkupPy"
-version = "1.17"
+version = "1.18"
 description = "An HTML/XML generator"
 readme = "README.md"
 authors = [
