@@ -127,7 +127,9 @@ Tagging each PyPI release in the Git repository makes it easier to track release
 
 ### Automated Release Process
 
-Alternatively, you can use the GitHub Actions workflow for automated releases:
+The project uses GitHub Actions for automated releases. There are two ways to trigger a release:
+
+#### Automatic Release on Version Bump
 
 1. Update the version number in both:
    - `MarkupPy/markup.py` (update `__version__` and `__date__`)
@@ -137,18 +139,27 @@ Alternatively, you can use the GitHub Actions workflow for automated releases:
    ```bash
    git add MarkupPy/markup.py pyproject.toml
    git commit -m "Bump version to X.XX"
-   git push origin master
+   git push origin main
    ```
 
-3. Go to the GitHub repository, click on "Actions" tab, select the "Build and Publish" workflow, and click "Run workflow".
+The workflow will automatically:
+- Detect the version change
+- Verify that the version numbers match
+- Create a Git tag
+- Build the package
+- Publish to PyPI using trusted publishing
+
+#### Manual Release
+
+If you need to run the release process manually:
+
+1. Go to the GitHub repository, click on "Actions" tab
+2. Select the "Build and Publish" workflow
+3. Click "Run workflow"
    - Enter the version number (e.g., 1.18)
    - Enable the "Create git tag" option if you want to automatically tag the release
    - Click "Run workflow"
 
-The workflow will:
-- Verify that the version numbers match
-- Create a Git tag (if selected)
-- Build the package
-- Publish to PyPI using trusted publishing
+The workflow will perform the same steps as the automatic release process.
 
 This automated process helps ensure consistency and reduces manual steps in the release process.
