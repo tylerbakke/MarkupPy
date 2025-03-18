@@ -123,4 +123,32 @@ When publishing a new release to PyPI, follow these steps:
    python -m twine upload dist/markuppy-1.XX*
    ```
 
-This ensures that each PyPI release is properly tagged in the Git repository, making it easier to track releases and find specific versions of the code.
+Tagging each PyPI release in the Git repository makes it easier to track releases and find specific versions of code.
+
+### Automated Release Process
+
+Alternatively, you can use the GitHub Actions workflow for automated releases:
+
+1. Update the version number in both:
+   - `MarkupPy/markup.py` (update `__version__` and `__date__`)
+   - `pyproject.toml` (update `version` under `[project]`)
+
+2. Commit and push the changes to GitHub:
+   ```bash
+   git add MarkupPy/markup.py pyproject.toml
+   git commit -m "Bump version to X.XX"
+   git push origin master
+   ```
+
+3. Go to the GitHub repository, click on "Actions" tab, select the "Build and Publish" workflow, and click "Run workflow".
+   - Enter the version number (e.g., 1.18)
+   - Enable the "Create git tag" option if you want to automatically tag the release
+   - Click "Run workflow"
+
+The workflow will:
+- Verify that the version numbers match
+- Create a Git tag (if selected)
+- Build the package
+- Publish to PyPI using trusted publishing
+
+This automated process helps ensure consistency and reduces manual steps in the release process.
