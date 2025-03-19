@@ -26,6 +26,10 @@ permissions:
   contents: write
   id-token: write # For PyPI trusted publishing
 
+env:
+  PYPI_REPOSITORY: pypi
+  TWINE_USERNAME: __token__
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -77,4 +81,7 @@ jobs:
         run: python -m build
       
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1 
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          verbose: true
+          repository_url: https://upload.pypi.org/legacy/ 
