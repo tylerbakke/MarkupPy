@@ -84,4 +84,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           verbose: true
-          repository_url: https://upload.pypi.org/legacy/ 
+          repository-url: https://upload.pypi.org/legacy/ 
