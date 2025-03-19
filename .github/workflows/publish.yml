@@ -13,10 +13,11 @@ on:
         required: true
         default: true
         type: boolean
-  # Trigger on pushes to main branch
+  # Trigger on pushes to main and master branches
   push:
     branches:
       - main
+      - master
 
 # Permissions needed for pushing tags and packages
 permissions:
