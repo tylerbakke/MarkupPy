@@ -102,3 +102,6 @@ ENV/
 
 # PyPI token script
 pypi-env.sh
+
+# PyPI credentials (should live in ~/.pypirc, never in repo)
+.pypirc
